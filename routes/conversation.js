@@ -61,4 +61,26 @@ router.delete('/:id', async (req, res) => {
     }
 })
 
+
+
+//Update Conversation with messages
+router.post('/message', async (req, res) => {
+    try {
+        Conversation.update(
+            { _id: req.query.id },
+            { $push: { conversation: req.body } },
+            (err, data) => {
+                if (err) {
+                    console.log(err)
+                    res.status(500).send(err)
+                } else {
+                    res.status(201).send(data)
+                }
+
+            }
+        )
+    } catch (error) {
+        res.status(500).send()
+    }
+})
 export default router
