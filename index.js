@@ -8,10 +8,10 @@ dotenv.config()
 
 // Setup Server
 const app = express()
-const PORT = process.env.PORT || 8000
+const port = process.env.PORT| | 8000
 app.use(cors())
 app.use(json())
-app.listen(PORT, () => console.log(`Server running on ${PORT}`))
+app.listen(port, () => console.log(`Server running on ${port}`))
 app.use('/conversation', conversationRoutes)
 
 // MongoDB Connection
