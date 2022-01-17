@@ -5,11 +5,13 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "start": "npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^12.0.3",
     "express": "^4.17.2",
     "mongoose": "^6.1.6"
