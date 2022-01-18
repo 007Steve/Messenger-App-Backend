@@ -6,9 +6,10 @@ const router = express.Router()
 // Create Conversation
 router.post('/', async (req, res) => {
     try {
-        const { chatName } = req.body
+        const { chatName, chatPhoto } = req.body
         const newconversation = new Conversation({
-            chatName
+            chatName,
+            chatPhoto
         })
         const saveConversation = await newconversation.save()
         res.send(saveConversation)
@@ -33,6 +34,7 @@ router.get('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
     try {
         const { chatName, chatPhoto } = req.body
+        console.log(chatPhoto)
         const conversationID = req.params.id
 
         const originalConversation = await Conversation.findById(conversationID)
